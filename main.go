@@ -1,19 +1,20 @@
 package fraction
 
 type Fraction struct {
-	bottom int
-	top int
+	Bottom int
+	Top int
 }
 
 func (f *Fraction) Add(other *Fraction)  {
-	if f.bottom != other.bottom{
+	if f.Bottom != other.Bottom{
 		tmp := *f
-		f.top *= other.bottom
-		f.bottom *= other.bottom
-		other.top *= tmp.bottom
-		other.bottom *= tmp.bottom
-		f.top += other.top
+		r := *other
+		f.Top *= r.Bottom
+		f.Bottom *= r.Bottom
+		r.Top *= tmp.Bottom
+		r.Bottom *= tmp.Bottom
+		f.Top += r.Top
 	}else{
-		f.top += other.top
+		f.Top += other.Top
 	}
 }
