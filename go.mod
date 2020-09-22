@@ -1,1 +1,1 @@
-module "fraction"
+module "github.com/devngho/fraction"
