@@ -18,3 +18,9 @@ func (f *Fraction) Add(other *Fraction)  {
 		f.Top += other.Top
 	}
 }
+
+func (f *Fraction) Abbreviation() {
+	d := gcd(f.Top, f.Bottom)
+	f.Top /= d
+	f.Bottom /= d
+}
