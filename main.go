@@ -50,3 +50,29 @@ func (f *Fraction) Abbreviation() {
 func MixedToFraction(num int, fraction *Fraction) *Fraction {
 	return &Fraction{Bottom: fraction.Bottom, Top: num * fraction.Bottom + fraction.Top}
 }
+
+func (f *Fraction) Compare(other *Fraction) int {
+	if f.Bottom != other.Bottom{
+		tmp := *f
+		r := *other
+		f.Top *= r.Bottom
+		f.Bottom *= r.Bottom
+		r.Top *= tmp.Bottom
+		r.Bottom *= tmp.Bottom
+		if tmp.Top > r.Top{
+			return -1
+		}else if tmp.Top < r.Top{
+			return 1
+		}else {
+			return 0
+		}
+	}else {
+		if f.Top > other.Top{
+			return -1
+		}else if f.Top < other.Top{
+			return 1
+		}else {
+			return 0
+		}
+	}
+}
